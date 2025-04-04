@@ -55,8 +55,8 @@ ${NAME}: ${OBJ_FILES}
 ${OBJ_FILES}: ${SRC_FILES} ${HDR_FILE}
 	${CC} ${FLAGS} -c ${SRC_FILES}
 
-bonus: ${OBJ_FILES} $(OBJ_BONUS)
-	ar rcs ${NAME} $?
+bonus: ${OBJ_FILES} $(OBJ_BONUS) ${HDR_FILE}
+	ar rcs ${NAME} $(OBJ_BONUS) ${OBJ_FILES}
 	
 $(OBJ_BONUS): ${SRC_BONUS} ${HDR_FILE}
 	${CC} ${FLAGS} -c ${SRC_BONUS}
