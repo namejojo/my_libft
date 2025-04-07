@@ -52,6 +52,9 @@ all: ${NAME}
 ${NAME}: ${OBJ_FILES}
 	ar rcs $@ ${OBJ_FILES}
 
+${NAME}: ${OBJ_FILES} $(OBJ_BONUS) ${HDR_FILE}
+	ar rcs ${NAME} $(OBJ_BONUS) ${OBJ_FILES}
+
 ${OBJ_FILES}: ${SRC_FILES} ${HDR_FILE}
 	${CC} ${FLAGS} -c ${SRC_FILES}
 
