@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:02:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/03/25 17:54:21 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:39:20 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			*ft_memset(void *s, int c, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
-void			*ft_bzero(void *s, size_t n);
+void			ft_bzero(void *s, size_t n);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstclear(t_list **lst, void (*del)(void*));

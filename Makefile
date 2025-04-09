@@ -50,19 +50,13 @@ FLAGS = -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}: ${OBJ_FILES}
-	ar rcs $@ ${OBJ_FILES}
-
-${NAME}: ${OBJ_FILES} $(OBJ_BONUS) ${HDR_FILE}
-	ar rcs ${NAME} $(OBJ_BONUS) ${OBJ_FILES}
-
-${OBJ_FILES}: ${SRC_FILES} ${HDR_FILE}
-	${CC} ${FLAGS} -c ${SRC_FILES}
+	ar rcs $@ $?
 
 bonus: ${OBJ_FILES} $(OBJ_BONUS) ${HDR_FILE}
 	ar rcs ${NAME} $(OBJ_BONUS) ${OBJ_FILES}
 	
-$(OBJ_BONUS): ${SRC_BONUS} ${HDR_FILE}
-	${CC} ${FLAGS} -c ${SRC_BONUS}
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean: 
 	rm -f *.o
