@@ -55,11 +55,11 @@ ${NAME}: ${OBJ_FILES}
 bonus: ${OBJ_FILES} $(OBJ_BONUS) ${HDR_FILE}
 	ar rcs ${NAME} $(OBJ_BONUS) ${OBJ_FILES}
 	
-%.o: %.c
+%.o: %.c ${HDR_FILE}
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean: 
-	rm -f *.o
+	rm -f $(OBJ_BONUS) $(OBJ_FILES)
 
 fclean: clean 
 	rm -f ${NAME}

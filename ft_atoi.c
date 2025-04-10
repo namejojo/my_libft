@@ -6,11 +6,18 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 12:14:12 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/09 18:31:03 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:32:50 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*skipspaces(char *str)
+{
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	return (str);
+}
 
 int	ft_atoi(char *str)
 {
@@ -19,8 +26,7 @@ int	ft_atoi(char *str)
 
 	sign = 1;
 	num = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
+	str = skipspaces(str);
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')

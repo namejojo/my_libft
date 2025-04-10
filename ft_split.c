@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:50:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/03/25 17:46:19 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:46:40 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,26 @@ static char	*ft_strndup(const char *s, int size)
 	return (dest);
 }
 
+static void	*free_all(char **strs, int count)
+{
+	int	ind;
+
+	ind = 0;
+	while (ind < count)
+		free (strs[ind]);
+	free (strs);
+	return (NULL);
+}
+
+static char	**alloc_mem(char **ret, int str_count)
+{
+	ret = malloc((str_count + 1) * sizeof(char *));
+	if (ret == NULL)
+		return (NULL);
+	ret[str_count] = NULL;
+	return (ret);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**ret;
@@ -65,18 +85,21 @@ char	**ft_split(char const *s, char c)
 	int		str_count;
 	int		indv;
 
-	str = (char *)s;
-	if (str == NULL || c == '\0')
+	if (s == NULL || c == '\0')
 		return (NULL);
+	str = (char *)s;
 	str_count = ft_str_count(str, c);
-	ret = malloc((str_count + 1) * sizeof(char *));
-	ret[str_count] = NULL;
+	ret = alloc_mem(ret, str_count);
+	if (ret == NULL)
+		return (NULL);
 	indv = 0;
 	while (str_count-- > 0)
 	{
 		while (*str == c)
 			str++;
 		ret[indv] = ft_strndup(str, ft_strlen_set(str, c));
+		if (ret[indv] == NULL && indv != str_count)
+			return (free_all(ret, indv));
 		indv++;
 		while (*str != c)
 			str++;

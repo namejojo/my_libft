@@ -6,22 +6,26 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:59:16 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/09 23:06:19 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/10 13:37:33 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcpy(char *dst, const char *src)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	ind;
-	size_t	size;
+	size_t	ret;
 	char	*s;
 
+	if (src == NULL || dst == NULL)
+		return (0);
 	s = (char *)src;
-	size = ft_strlen (s);
 	ind = 0;
-	while (ind < size - 1 && s[ind])
+	ret = (ft_strlen((char *)src));
+	if (size == 0)
+		return (ret);
+	while (ind < size - 1)
 	{
 		dst[ind] = s[ind];
 		ind++;
@@ -31,5 +35,5 @@ size_t	strlcpy(char *dst, const char *src)
 		dst[ind] = '\0';
 		ind++;
 	}
-	return (size);
+	return (ret);
 }

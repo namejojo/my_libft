@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:02:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/09 18:39:20 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/10 19:55:58 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 t_list			*ft_lstlast(t_list *lst);
 void			*ft_calloc(size_t nmemb, size_t size);
-unsigned int	ft_strlen(char *s);
-unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int size);
-unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size);
+size_t			ft_strlen(const char *s);
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
+size_t			ft_strlcat(char *dst, const char *src, size_t size);
 void			ft_striteri(char const *s, void (*f)(unsigned int, char*));
 int				ft_atoi(char *str);
 int				ft_memcmp(const void *str1, const void *str2, size_t n);
