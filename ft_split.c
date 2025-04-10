@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:50:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/10 18:46:40 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/10 23:07:51 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static char	*ft_strndup(const char *s, int size)
 		return (NULL);
 	src = (char *)s;
 	dest = malloc(size + 1);
+	ft_bzero(dest, size + 1);
 	if (dest == NULL)
 		return (NULL);
 	dest = ft_memcpy(dest, src, size);

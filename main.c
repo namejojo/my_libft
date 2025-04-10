@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/10 20:09:58 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/10 23:10:37 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <limits.h>
 #include <ctype.h>
 #include <string.h>
+#include <bsd/string.h>
 #include "libft.h"
 int				ft_atoi(char *str);
 
@@ -41,7 +42,6 @@ int main()
 	free (a);
 	
 	printf(" ft_strlen:\n");
-
 	printf("\t%zu\n", ft_strlen("   \t\r\n\v\f-+123f"));
 	printf("\t%zu\n", ft_strlen(""));
 	printf("\t%zu\n", ft_strlen("\0"));
@@ -278,7 +278,7 @@ int main()
 	printf("\t%s\n", (char *)memchr(a, '2', 4));
 	printf("\t%s\n", (char *)memchr(a, '3', 3));
 	printf("\t%s\n", (char *)memchr(a, '1', 1));
-	printf("\t%p\n", memchr(a, '1', 0));
+	// printf("\t%s\n", (char *)memchr(a, '1', 0));
 	printf("\t%p\n", memchr(a, 'a', 5));
 	// printf("\t%p\n", memchr(NULL, 'a', 1)); //segfault
 	
@@ -288,9 +288,9 @@ int main()
 	printf("\t%s\n", (char *)ft_memchr(a, '2', 4));
 	printf("\t%s\n", (char *)ft_memchr(a, '3', 3));
 	printf("\t%s\n", (char *)ft_memchr(a, '1', 1));
-	printf("\t%p\n", ft_memchr(a, '1', 0));
+	// printf("\t%s\n", (char *)ft_memchr(a, '1', 0));
 	printf("\t%p\n", ft_memchr(a, 'a', 5));
-	printf("\t%p\n", ft_memchr(NULL, 'a', 1)); //segfault
+	// printf("\t%p\n", ft_memchr(NULL, 'a', 1)); //segfault
 	
 	printf("\t\n memcmp:\n");
 
@@ -307,46 +307,44 @@ int main()
 	
 	printf("\t\n ft_memcmp:\n");
 	// 
-		printf("\t%d\n", ft_memcmp("ABC", "ABC", 3));
-		printf("\t%d\n", ft_memcmp("ABC", "ABC", 2));
-		printf("\t%d\n", ft_memcmp("ABC", "ABC", 0));
-		printf("\t%d\n", ft_memcmp("ABC", "ABC", -1));
-		printf("\t%d\n", ft_memcmp("ABC", "AB", 3));
-		printf("\t%d\n", ft_memcmp("AB", "ABC", 3));
-		printf("\t%d\n", ft_memcmp("ABC", "ABp", 3));
-		printf("\t%d\n", ft_memcmp("ABC", NULL, 3)); //segfault
-		printf("\t%d\n", ft_memcmp(NULL, "ABC", 3)); //segfault
-		printf("\t%d\n", ft_memcmp(NULL, NULL, 3)); //segfault
-		// 
-	
-	printf("\t\n ft_strncmp:\n");
+	printf("\t%d\n", ft_memcmp("ABC", "ABC", 3));
+	printf("\t%d\n", ft_memcmp("ABC", "ABC", 2));
+	printf("\t%d\n", ft_memcmp("ABC", "ABC", 0));
+	printf("\t%d\n", ft_memcmp("ABC", "ABC", -1));
+	printf("\t%d\n", ft_memcmp("ABC", "AB", 3));
+	printf("\t%d\n", ft_memcmp("AB", "ABC", 3));
+	printf("\t%d\n", ft_memcmp("ABC", "ABp", 3));
+	// printf("\t%d\n", ft_memcmp("ABC", NULL, 3)); //segfault
+	// printf("\t%d\n", ft_memcmp(NULL, "ABC", 3)); //segfault
+	// printf("\t%d\n", ft_memcmp(NULL, NULL, 3)); //segfault
 	// 
-		printf("\t%d\n", ft_strncmp("ABC", "ABC", 3));
-		printf("\t%d\n", ft_strncmp("ABC", "ABC", 2));
-		printf("\t%d\n", ft_strncmp("ABC", "ABC", 0));
-		printf("\t%d\n", ft_strncmp("ABC", "ABC", -1));
-		printf("\t%d\n", ft_strncmp("ABC", "AB", 3));
-		printf("\t%d\n", ft_strncmp("AB", "ABC", 3));
-		printf("\t%d\n", ft_strncmp("ABC", "ABp", 3));
-		// printf("\t%d\n", ft_strncmp("ABC", NULL, 3)); //segfault
-		// printf("\t%d\n", ft_strncmp(NULL, "ABC", 3)); //segfault
-		// printf("\t%d\n", ft_strncmp(NULL, NULL, 3)); //segfault
-		// 
+		printf("\t\n ft_strncmp:\n");
+	// 
+	printf("\t%d\n", ft_strncmp("ABC", "ABC", 3));
+	printf("\t%d\n", ft_strncmp("ABC", "ABC", 2));
+	printf("\t%d\n", ft_strncmp("ABC", "ABC", 0));
+	printf("\t%d\n", ft_strncmp("ABC", "ABC", -1));
+	printf("\t%d\n", ft_strncmp("ABC", "AB", 3));
+	printf("\t%d\n", ft_strncmp("AB", "ABC", 3));
+	printf("\t%d\n", ft_strncmp("ABC", "ABp", 3));
+	// printf("\t%d\n", ft_strncmp("ABC", NULL, 3)); //segfault
+	// printf("\t%d\n", ft_strncmp(NULL, "ABC", 3)); //segfault
+	// printf("\t%d\n", ft_strncmp(NULL, NULL, 3)); //segfault
+	// 
 	
 	printf("\t\n strncmp:\n");
 	// 
-		printf("\t%d\n", strncmp("ABC", "ABC", 3));
-		printf("\t%d\n", strncmp("ABC", "ABC", 2));
-		printf("\t%d\n", strncmp("ABC", "ABC", 0));
-		printf("\t%d\n", strncmp("ABC", "ABC",-1));
-		printf("\t%d\n", strncmp("ABC", "AB" , 3));
-		printf("\t%d\n", strncmp( "AB", "ABC", 3));
-		printf("\t%d\n", strncmp("ABC", "ABp", 3));
-		// printf("\t%d\n", strcmp("ABC", NULL, 3)); //segfault
-		// printf("\t%d\n", strcmp(NULL, "ABC", 3)); //segfault
-		// printf("\t%d\n", strcmp(NULL, NULL, 3)); //segfault
-		// 
-		return(0);
+	printf("\t%d\n", strncmp("ABC", "ABC", 3));
+	printf("\t%d\n", strncmp("ABC", "ABC", 2));
+	printf("\t%d\n", strncmp("ABC", "ABC", 0));
+	printf("\t%d\n", strncmp("ABC", "ABC",-1));
+	printf("\t%d\n", strncmp("ABC", "AB" , 3));
+	printf("\t%d\n", strncmp( "AB", "ABC", 3));
+	printf("\t%d\n", strncmp("ABC", "ABp", 3));
+	// printf("\t%d\n", strcmp("ABC", NULL, 3)); //segfault
+	// printf("\t%d\n", strcmp(NULL, "ABC", 3)); //segfault
+	// printf("\t%d\n", strcmp(NULL, NULL, 3)); //segfault
+	// 
 	printf("\t\n memcpy:\n");
 	char *b;
 	b = malloc(50);
@@ -411,99 +409,99 @@ int main()
 	printf("\t%s\n", k);
 	ft_memmove(k + 22, k + 17, 11);
 	printf("\t%s\n", k);
-	ft_memmove(NULL, k + 17, 11); // Ssegfault
-	printf("\t%s\n", k);
-	ft_memmove(k + 22, NULL, 11); // Ssegfault
-	printf("\t%s\n", k);
+	// ft_memmove(NULL, k + 17, 11); // Ssegfault
+	// printf("\t%s\n", k);
+	// ft_memmove(k + 22, NULL, 11); // Ssegfault
+	// printf("\t%s\n", k);
 // 
-	printf("\t\n strlcpy:\n");
-	size_t numb = strlcpy(b, "ABC\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcpy(b, "hello\0", 5);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcpy(b, "hello\0", 50);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcpy(b, "ret\0", 0);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcpy(b, "ABC\0", 1);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcpy(b, "AB\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcpy(b, "ABK\0", 4);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcpy(b, "ABp\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-// 
-	printf("\t\n ft_strlcpy:\n");
-	bzero (b, 50);
-	numb = ft_strlcpy(b, "ABC\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "hello\0", 5);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "hello\0", 50);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ret\0", 0);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ABC\0", 1);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "AB\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ABK\0", 4);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ABp\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ABp\0", 5);
-		// 
-	printf("\t\n strlcat:\n");
-	bzero (b, 50);
-	numb = strlcat(b, "ABC\0", 10);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcat(b, " hello\0", 40);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcat(b, " there\0", 50);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcat(b, "ret\0", 0);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = strlcat(b, "ABC\0", 1);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-		// 
-	bzero (b, 50);
-	numb = ft_strlcat(b, "ABC\0", 10);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcat(b, " hello\0", 40);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcat(b, " there\0", 50);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcat(b, "ret\0", 0);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcat(b, "ABC\0", 1);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
+// 	printf("\t\n strlcpy:\n");
+// 	size_t numb = strlcpy(b, "ABC\0", 3);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcpy(b, "hello\0", 5);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcpy(b, "hello\0", 50);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcpy(b, "ret\0", 0);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcpy(b, "ABC\0", 1);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcpy(b, "AB\0", 3);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcpy(b, "ABK\0", 4);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcpy(b, "ABp\0", 3);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// // 
+// 	printf("\t\n ft_strlcpy:\n");
+// 	bzero (b, 50);
+// 	numb = ft_strlcpy(b, "ABC\0", 3);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcpy(b, "hello\0", 5);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcpy(b, "hello\0", 50);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcpy(b, "ret\0", 0);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcpy(b, "ABC\0", 1);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcpy(b, "AB\0", 3);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcpy(b, "ABK\0", 4);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcpy(b, "ABp\0", 3);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcpy(b, "ABp\0", 5);
+// 		// 
+// 	printf("\t\n strlcat:\n");
+// 	bzero (b, 50);
+// 	numb = strlcat(b, "ABC\0", 10);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcat(b, " hello\0", 40);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcat(b, " there\0", 50);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcat(b, "ret\0", 0);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = strlcat(b, "ABC\0", 1);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 		// 
+// 	bzero (b, 50);
+// 	numb = ft_strlcat(b, "ABC\0", 10);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcat(b, " hello\0", 40);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcat(b, " there\0", 50);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcat(b, "ret\0", 0);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
+// 	numb = ft_strlcat(b, "ABC\0", 1);
+// 	printf("\t%zu\n", numb);
+// 	printf("\t%s\n", b);
 // 
 	printf("\t\n ft_strchr:\n");
 // 
@@ -522,7 +520,7 @@ int main()
 	printf("\t%s\n", strchr("ola bom dia", ' '));
 	printf("\t%s\n", strchr("ola bom dia", 'i'));
 	printf("\t%s\n", strchr("ola bom dia", '\0'));
-	printf("\t%s\n", strchr("ola bom dia", '!'));
+	printf("\t%p\n", strchr("ola bom dia", '!'));
 	// printf("\t%s\n", strchr(NULL, '!'));
 		// 
 	printf("\t\n ft_strrchr:\n");
@@ -554,6 +552,14 @@ printf("\n ft_split:\n");
 		free (spli[i]);
 	}
 	free (spli);
+	// 
+	printf("\t\n ft_itoa:\n");
+// 
+	printf("\t%s\n", ft_itoa(-123456));
+	printf("\t%s\n", ft_itoa(-2147483648));
+	printf("\t%s\n", ft_itoa(2147483647));
+	printf("\t%s\n", ft_itoa(10));
+	printf("\t%s\n", ft_itoa(0));
 	// bzero(b, 50);
 // 
 }
