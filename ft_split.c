@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:50:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 18:38:17 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 19:28:28 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	*free_all(char **strs, int count)
 
 static char	**alloc_mem(int str_count)
 {
-	char **ret;
+	char	**ret;
 
 	ret = malloc((str_count + 1) * sizeof(char *));
 	if (ret == NULL)

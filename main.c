@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 15:03:19 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 19:04:08 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -544,11 +544,10 @@ printf("\n ft_split:\n");
 
 	char **spli;
 	// 
-	spli = ft_split("Ola eu sou fixe", 'a');
+	spli = ft_split("\0aa\0bbb", '\0');
 	int i = -1;
 	while (spli && spli[++i] != NULL)
 	{
-		
 		printf("\t%s\n", spli[i]);
 		free (spli[i]);
 	}

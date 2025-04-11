@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:09:25 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/09 18:59:35 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 19:01:28 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ char	*ft_itoa(int n)
 
 	size = ft_nrblrn(n);
 	if (n >= 0)
-		ret = malloc (size + 1);
+		ret = ft_calloc (size + 1, 1);
 	else
-		ret = malloc (size + 2);
+		ret = ft_calloc (size + 2, 1);
 	if (ret == NULL)
 		return (NULL);
-	ret[size] = '\0';
 	if (n < 0)
 	{
 		ret[0] = '-';
