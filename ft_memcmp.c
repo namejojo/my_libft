@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 20:26:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/10 22:45:32 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 09:58:59 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,5 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n)
 	ind = 0;
 	while (s1[ind] && s2[ind] && s1[ind] == s2[ind] && ind < n - 1)
 		ind++;
-	if (s1[ind] < s2[ind])
-		return (-1);
-	else if (s1[ind] > s2[ind])
-		return (1);
-	return (0);
+	return (s1[ind] - s2[ind]);
 }

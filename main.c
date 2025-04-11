@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 08:59:10 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:14:19 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,7 +276,7 @@ int main()
 	printf("\t%s\n", (char *)memchr(a, '2', 4));
 	printf("\t%s\n", (char *)memchr(a, '3', 3));
 	printf("\t%s\n", (char *)memchr(a, '1', 1));
-	// printf("\t%s\n", (char *)memchr(a, '1', 0));
+	printf("\t%s\n", memchr(a, '1', 0));
 	printf("\t%p\n", memchr(a, 'a', 5));
 	// printf("\t%p\n", memchr(NULL, 'a', 1)); //segfault
 	
@@ -286,10 +286,10 @@ int main()
 	printf("\t%s\n", (char *)ft_memchr(a, '2', 4));
 	printf("\t%s\n", (char *)ft_memchr(a, '3', 3));
 	printf("\t%s\n", (char *)ft_memchr(a, '1', 1));
-	// printf("\t%s\n", (char *)ft_memchr(a, '1', 0));
+	printf("\t%s\n", ft_memchr(a, '1', 0));
 	printf("\t%p\n", ft_memchr(a, 'a', 5));
 	// printf("\t%p\n", ft_memchr(NULL, 'a', 1)); //segfault
-	
+	return 0;
 	printf("\t\n memcmp:\n");
 
 	printf("\t%d\n", memcmp("ABC", "ABC", 3));
