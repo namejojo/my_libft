@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:50:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/10 23:07:51 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:26:29 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static void	*free_all(char **strs, int count)
 {
 	int	ind;
 
-	ind = 0;
-	while (ind < count)
+	ind = -1;
+	while (++ind < count)
 		free (strs[ind]);
 	free (strs);
 	return (NULL);

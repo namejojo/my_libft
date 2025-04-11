@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:53:00 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/09 23:01:10 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:29:00 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	char	*dest;
 	int		size;
 
-	if (s == NULL)
-		return (NULL);
 	src = (char *)s;
 	size = ft_strlen(src);
 	dest = malloc(size + 1);

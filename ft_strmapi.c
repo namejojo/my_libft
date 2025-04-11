@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:01:11 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/03/25 16:40:07 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:32:55 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ret;
 	char	*str;
 
+	if (s == NULL || f == NULL)
+		return (NULL);
 	str = (char *)s;
 	ind = ft_strlen(str);
 	ret = (char *)malloc(ind + 1);
