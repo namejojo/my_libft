@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 10:14:19 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:21:53 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -289,7 +289,7 @@ int main()
 	printf("\t%s\n", ft_memchr(a, '1', 0));
 	printf("\t%p\n", ft_memchr(a, 'a', 5));
 	// printf("\t%p\n", ft_memchr(NULL, 'a', 1)); //segfault
-	return 0;
+
 	printf("\t\n memcmp:\n");
 
 	printf("\t%d\n", memcmp("ABC", "ABC", 3));
