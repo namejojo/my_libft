@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 19:04:08 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 19:57:59 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int main()
 	printf("\t%p\n", strnstr("ola bom dia", "olasdsd", 10));
 	printf("\t%p\n", strnstr("ola bom dia", "!", 10));
 	// printf("\t%p\n", strstr("ola bom dia", NULL)); //segfault
-	// printf("\t%p\n", strstr(NULL, "olasdsd"));		//segfault
+	// printf("\t%p\n", strstr(NULL, "olasdsd"));		//segfaultr
 
 	printf("\t\n ft_strtrim:\n");
 
@@ -139,8 +139,9 @@ int main()
 	printf("\t%s\n", ft_substr("ola bom dia", 1, 50));
 	printf("\t%s\n", ft_substr("ola bom dia", 2, 3));
 	printf("\t%s\n", ft_substr("ola bom dia", 3, 7));
-	printf("\t%s\n", ft_substr(NULL, ' ', 20));		//segfault
-	printf("\t%s\n", ft_substr("ola bom dia", 33, 20)); //segfault
+	printf("\t%s\n", ft_substr(NULL, ' ', 20));
+	printf("\t%s\n", ft_substr("ola bom dia", 33, 20));
+	printf("\t%s\n", ft_substr("ola bom dia",5 , 0));
 
 	printf("\t\n isalnum:\n");
 
@@ -295,7 +296,6 @@ int main()
 	printf("\t%d\n", memcmp("ABC", "ABC", 3));
 	printf("\t%d\n", memcmp("ABC", "ABC", 2));
 	printf("\t%d\n", memcmp("ABC", "ABC", 0));
-	printf("\t%d\n", memcmp("ABC", "ABC", -1));
 	printf("\t%d\n", memcmp("ABC", "AB", 3));
 	printf("\t%d\n", memcmp("AB", "ABC", 3));
 	printf("\t%d\n", memcmp("ABC", "ABp", 3));
@@ -307,8 +307,7 @@ int main()
 	// 
 	printf("\t%d\n", ft_memcmp("ABC", "ABC", 3));
 	printf("\t%d\n", ft_memcmp("ABC", "ABC", 2));
-	printf("\t%d\n", ft_memcmp("ABC", "ABC", 0));
-	printf("\t%d\n", ft_memcmp("ABC", "ABC", -1));
+	printf("\t%d\n", ft_memcmp("BC", "ABC", 0));
 	printf("\t%d\n", ft_memcmp("ABC", "AB", 3));
 	printf("\t%d\n", ft_memcmp("AB", "ABC", 3));
 	printf("\t%d\n", ft_memcmp("ABC", "ABp", 3));

@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 20:58:22 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 19:10:21 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 19:55:50 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,14 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ret;
 	size_t	ind;
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
 	ind = -1;
-	if (ind / nmemb >= size)
+	if (nmemb == 0 || size == 0 || ind / nmemb >= size)
 	{
 		ret = malloc(size * nmemb);
 		if (ret == NULL)
 			return (0);
 		ind = 0;
-		while (ind <= nmemb * size)
-			((char *)ret)[ind++] = '\0';
+		ft_bzero(ret, size * nmemb);
 		return (ret);
 	}
 	return (NULL);
