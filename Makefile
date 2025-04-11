@@ -45,7 +45,7 @@ HDR_FILE = libft.h
 
 CC = cc
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: ${NAME}
 

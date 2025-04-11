@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:50:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 14:48:41 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 18:38:17 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ static void	*free_all(char **strs, int count)
 	return (NULL);
 }
 
-static char	**alloc_mem(char **ret, int str_count)
+static char	**alloc_mem(int str_count)
 {
+	char **ret;
+
 	ret = malloc((str_count + 1) * sizeof(char *));
 	if (ret == NULL)
 		return (NULL);
@@ -84,7 +86,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	str = (char *)s;
 	str_count = ft_str_count(str, c);
-	ret = alloc_mem(ret, str_count);
+	ret = alloc_mem(str_count);
 	if (ret == NULL)
 		return (NULL);
 	indv = 0;
