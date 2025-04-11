@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 22:18:43 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/10 18:37:06 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:43:55 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL)
 		return (NULL);
 	if (set == NULL)
-		return (NULL);
+		return (ft_strdup((char *)s1));
 	str1 = (char *)s1;
 	total = ft_strlen_set((char *)s1, (char *)set);
 	ret = (char *)malloc(total + 1);

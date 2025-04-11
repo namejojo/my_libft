@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 10:28:59 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 14:19:23 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int main()
 
 	printf("\t%d\n", ft_atoi("   \t\r\n\v\f-+123f"));
 	printf("\t%d\n", ft_atoi("   \t\r\n\v\f--123f"));
-	printf("\t%d\n", ft_atoi("   \t\r\n\v\f-123f"));
+	printf("\t%d\n", ft_atoi("   \t\r\n\v\f-12 3f"));
 	printf("\t%d\n", ft_atoi("   \t\r\n\v\f+123f"));
 	printf("\t%d\n", ft_atoi("   \t\r\n\v\f123f"));
 	printf("\t%d\n", ft_atoi(""));
@@ -68,7 +68,7 @@ int main()
 
 	printf("\t%d\n", atoi("   \t\r\n\v\f-+123f"));
 	printf("\t%d\n", atoi("   \t\r\n\v\f--123f"));
-	printf("\t%d\n", atoi("   \t\r\n\v\f-123f"));
+	printf("\t%d\n", atoi("   \t\r\n\v\f-12 3f"));
 	printf("\t%d\n", atoi("   \t\r\n\v\f+123f"));
 	printf("\t%d\n", atoi("   \t\r\n\v\f123f"));
 	printf("\t%d\n", atoi(""));
@@ -106,10 +106,10 @@ int main()
 
 	printf("\t\n strnstr:\n");
 
-	printf("\t%s\n", strstr("ola bom dia", "ola"));
-	printf("\t%s\n", strstr("ola bom dia", " "));
-	printf("\t%p\n", strstr("ola bom dia", "olasdsd"));
-	printf("\t%p\n", strstr("ola bom dia", "!"));
+	printf("\t%s\n", strnstr("ola bom dia", "ola", 10));
+	printf("\t%s\n", strnstr("ola bom dia", " ", 10));
+	printf("\t%p\n", strnstr("ola bom dia", "olasdsd", 10));
+	printf("\t%p\n", strnstr("ola bom dia", "!", 10));
 	// printf("\t%p\n", strstr("ola bom dia", NULL)); //segfault
 	// printf("\t%p\n", strstr(NULL, "olasdsd"));		//segfault
 
@@ -137,8 +137,8 @@ int main()
 	printf("\t\n ft_substr:\n");
 
 	printf("\t%s\n", ft_substr("ola bom dia", 1, 50));
-	printf("\t%s\n", ft_substr("ola bom dia", 2, 50));
-	printf("\t%s\n", ft_substr("ola bom dia", 3, 50));
+	printf("\t%s\n", ft_substr("ola bom dia", 2, 3));
+	printf("\t%s\n", ft_substr("ola bom dia", 3, 7));
 	printf("\t%s\n", ft_substr(NULL, ' ', 20));		//segfault
 	printf("\t%s\n", ft_substr("ola bom dia", 33, 20)); //segfault
 
@@ -149,7 +149,7 @@ int main()
 	printf("\t%d\n", isalnum('B'));
 	printf("\t%d\n", isalnum('!'));
 	printf("\t%d\n", isalnum('\n'));
-	printf("\t%d\n", isalnum(127));
+	printf("\t%d\n", isalnum(140));
 
 	printf("\t\n ft_isalnum:\n");
 
@@ -158,7 +158,7 @@ int main()
 	printf("\t%d\n", ft_isalnum('B'));
 	printf("\t%d\n", ft_isalnum('!'));
 	printf("\t%d\n", ft_isalnum('\n'));
-	printf("\t%d\n", ft_isalnum(127));
+	printf("\t%d\n", ft_isalnum(140));
 	
 	printf("\t\n isalpha:\n");
 
@@ -221,7 +221,7 @@ int main()
 	printf("\t%d\n", isascii('B'));
 	printf("\t%d\n", isascii('!'));
 	printf("\t%d\n", isascii('\n'));
-	printf("\t%d\n", isascii(127));
+	printf("\t%d\n", isascii(140));
 	
 	printf("\t\n ft_isascii:\n");
 
@@ -230,7 +230,7 @@ int main()
 	printf("\t%d\n", ft_isascii('B'));
 	printf("\t%d\n", ft_isascii('!'));
 	printf("\t%d\n", ft_isascii('\n'));
-	printf("\t%d\n", ft_isascii(127));
+	printf("\t%d\n", ft_isascii(140));
 	
 	printf("\t\n isdigit:\n");
 
@@ -276,7 +276,7 @@ int main()
 	printf("\t%s\n", (char *)memchr(a, '2', 4));
 	printf("\t%s\n", (char *)memchr(a, '3', 3));
 	printf("\t%s\n", (char *)memchr(a, '1', 1));
-	printf("\t%s\n", memchr(a, '1', 0));
+	printf("\t%s\n", (char *)memchr(a, '1', 0));
 	printf("\t%p\n", memchr(a, 'a', 5));
 	// printf("\t%p\n", memchr(NULL, 'a', 1)); //segfault
 	
@@ -286,7 +286,7 @@ int main()
 	printf("\t%s\n", (char *)ft_memchr(a, '2', 4));
 	printf("\t%s\n", (char *)ft_memchr(a, '3', 3));
 	printf("\t%s\n", (char *)ft_memchr(a, '1', 1));
-	printf("\t%s\n", ft_memchr(a, '1', 0));
+	printf("\t%s\n", (char *)ft_memchr(a, '1', 0));
 	printf("\t%p\n", ft_memchr(a, 'a', 5));
 	// printf("\t%p\n", ft_memchr(NULL, 'a', 1)); //segfault
 
@@ -337,7 +337,7 @@ int main()
 	printf("\t%d\n", strncmp("ABC", "ABC", 0));
 	printf("\t%d\n", strncmp("ABC", "ABC",-1));
 	printf("\t%d\n", strncmp("ABC", "AB" , 3));
-	printf("\t%d\n", strncmp( "AB", "ABC", 3));
+	printf("\t%d\n", strncmp("AB", "ABC", 3));
 	printf("\t%d\n", strncmp("ABC", "ABp", 3));
 	// printf("\t%d\n", strcmp("ABC", NULL, 3)); //segfault
 	// printf("\t%d\n", strcmp(NULL, "ABC", 3)); //segfault
@@ -538,15 +538,17 @@ int main()
 	printf("\t%s\n", strrchr("ola bom dia", ' '));
 	printf("\t%s\n", strrchr("ola bom dia", 'i'));
 	printf("\t%s\n", strrchr("ola bom dia", '\0'));
+	printf("\t%s\n", strrchr("ola bom dia", '!'));
 // 
 printf("\n ft_split:\n");
 
 	char **spli;
 	// 
-	spli = ft_split("  ola  o  meu  nome  e  joao    guilh lima   de    souza   e   soufixe     ", ' ');
+	spli = ft_split(NULL, 'n');
 	int i = -1;
-	while (spli[++i] != NULL)
+	while (spli && spli[++i] != NULL)
 	{
+		
 		printf("\t%s\n", spli[i]);
 		free (spli[i]);
 	}
@@ -555,7 +557,7 @@ printf("\n ft_split:\n");
 	printf("\t\n ft_itoa:\n");
 // 
 	printf("\t%s\n", ft_itoa(-123456));
-	printf("\t%s\n", ft_itoa(-2147483648));
+	printf("\t%s\n", ft_itoa(-2147483690));
 	printf("\t%s\n", ft_itoa(2147483647));
 	printf("\t%s\n", ft_itoa(10));
 	printf("\t%s\n", ft_itoa(0));

@@ -6,13 +6,13 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 13:52:31 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/10 19:13:16 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:24:10 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	ind;
 
