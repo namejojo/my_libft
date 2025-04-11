@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 14:19:23 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 15:03:19 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 	printf("\t0%s\n", (char *)memset(a, 'a', 1));
 	printf("\t1%s\n", (char *)memset(a, 'b', 1));
 	printf("\t5%s\n", (char *)memset(a, 'a', 5));
-	printf("\t%s\n", (char *)memset(a, 'a', 500));
+	// printf("\t%s\n", (char *)memset(a, 'a', 500));
 	// printf("\t%s\n", (char *)memset(NULL, 'a', 1)); //segfault
 	bzero(a,10);
 	printf(" ft_memset:\n");
@@ -36,7 +36,7 @@ int main()
 	printf("\t0%s\n", (char *)ft_memset(a, 'a', 1));
 	printf("\t1%s\n", (char *)ft_memset(a, 'b', 1));
 	printf("\t5%s\n", (char *)ft_memset(a, 'a', 5));
-	printf("\t%s\n", (char *)ft_memset(a, 'a', 500));
+	// printf("\t%s\n", (char *)ft_memset(a, 'a', 500));
 	// printf("\t%s\n", (char *)ft_memset(NULL, 'a', 1));
 	free (a);
 	
@@ -544,7 +544,7 @@ printf("\n ft_split:\n");
 
 	char **spli;
 	// 
-	spli = ft_split(NULL, 'n');
+	spli = ft_split("Ola eu sou fixe", 'a');
 	int i = -1;
 	while (spli && spli[++i] != NULL)
 	{
@@ -557,7 +557,7 @@ printf("\n ft_split:\n");
 	printf("\t\n ft_itoa:\n");
 // 
 	printf("\t%s\n", ft_itoa(-123456));
-	printf("\t%s\n", ft_itoa(-2147483690));
+	printf("\t%s\n", ft_itoa(-2147483648));
 	printf("\t%s\n", ft_itoa(2147483647));
 	printf("\t%s\n", ft_itoa(10));
 	printf("\t%s\n", ft_itoa(0));
@@ -577,4 +577,4 @@ printf("%zu", aaaa);
 	// printf("\t%s\n", ft_itoa(+-42));
 	// printf("\t%s\n", ft_itoa(0));
 	// printf("\t%s\n", ft_itoa());
-// 
+// l

@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:50:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 14:07:53 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/11 14:48:41 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,19 @@ static int	ft_str_count(char *str, char c)
 	return (count);
 }
 
-static int	ft_strlen_set(char *str, char c)
-{
-	int	ind;
-
-	ind = 0;
-	while (str[ind])
-	{
-		if (str[ind] == c)
-			return (ind);
-		ind++;
-	}
-	return (ind);
-}
-
-static char	*ft_strndup(const char *s, int size)
+static char	*ft_strndup(const char *s, char c)
 {
 	char	*src;
 	char	*dest;
+	int		size;
 
+	size = 0;
+	while (s[size])
+	{
+		if (s[size] == c)
+			break ;
+		size++;
+	}
 	if (s == NULL)
 		return (NULL);
 	src = (char *)s;
@@ -98,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*str == c)
 			str++;
-		ret[indv] = ft_strndup(str, ft_strlen_set(str, c));
+		ret[indv] = ft_strndup(str, c);
 		if (ret[indv] == NULL && indv != str_count)
 			return (free_all(ret, indv));
 		indv++;
