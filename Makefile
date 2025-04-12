@@ -33,19 +33,23 @@ SRC_FILES = ft_toupper.c \
 			ft_itoa.c \
 			ft_substr.c
 		
-OBJ_FILES = ${SRC_FILES:.c=.o}
+OBJ_FILES=${SRC_FILES:.c=.o}
 
-SRC_BONUS = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c 
+SRC_BONUS=ft_lstdelone_bonus.c ft_lstadd_back_bonus.c \
+		  ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+		  ft_lstiter_bonus.c ft_lstlast_bonus.c \
+		  ft_lstmap_bonus.c ft_lstnew_bonus.c \
+		  ft_lstsize_bonus.c 
 
-OBJ_BONUS = ${SRC_BONUS:.c=.o}
+OBJ_BONUS=${SRC_BONUS:.c=.o}
 
-NAME = libft.a
+NAME=libft.a
 
-HDR_FILE = libft.h
+HDR_FILE=libft.h
 
-CC = cc
+CC=cc
 
-CFLAGS = -Wall -Wextra -Werror
+FLAGS= -Wall -Wextra -Werror
 
 all: ${NAME}
 
@@ -57,7 +61,7 @@ bonus: ${OBJ_FILES} $(OBJ_BONUS) ${HDR_FILE}
 	@touch bonus
 
 %.o: %.c ${HDR_FILE}
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 clean: 
 	rm -f $(OBJ_BONUS) $(OBJ_FILES) 
