@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:50:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 19:28:28 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:08:44 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	**ft_split(char const *s, char c)
 	int		str_count;
 	int		indv;
 
-	if (s == NULL || c == '\0')
+	if (s == NULL)
 		return (NULL);
 	str = (char *)s;
 	str_count = ft_str_count(str, c);
