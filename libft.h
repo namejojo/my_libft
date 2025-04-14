@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:02:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 14:31:20 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/14 21:00:16 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char			*ft_itoa(int n);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strtrim(char const *s1, char const *set);
-char			*ft_strnstr(const char *haystack, const char *ndl, int n);
+char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strdup(const char *s);
@@ -41,7 +41,6 @@ size_t			ft_strlen(const char *s);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 void			ft_striteri(char const *s, void (*f)(unsigned int, char*));
-int				ft_atoi(char *str);
 int				ft_memcmp(const void *str1, const void *str2, size_t n);
 int				ft_isprint(int c);
 int				ft_isdigit(int c);
@@ -51,5 +50,6 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_isalnum(int c);
+int				ft_atoi(const char *str);
 
 #endif

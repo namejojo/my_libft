@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/14 08:38:16 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/14 21:01:25 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@
 
 int main()
 {
+	
+
 	char *a;
 	
 	a = malloc (10);
-	bzero(a,10);
+	ft_bzero(a,10);
 	printf(" memset:\n");
 
 	printf("\t0%s\n", (char *)memset(a, 'a', 1));
@@ -30,7 +32,7 @@ int main()
 	printf("\t5%s\n", (char *)memset(a, 'a', 5));
 	// printf("\t%s\n", (char *)memset(a, 'a', 500));
 	// printf("\t%s\n", (char *)memset(NULL, 'a', 1)); //segfault
-	bzero(a,10);
+	ft_bzero(a,10);
 	printf(" ft_memset:\n");
 
 	printf("\t0%s\n", (char *)ft_memset(a, 'a', 1));
@@ -97,22 +99,24 @@ int main()
 
 	printf("\n ft_strnstr:\n");
 
-	printf("\t%s\n", ft_strnstr("ola bom dia", "ola", 10));
-	printf("\t%s\n", ft_strnstr("ola bom dia", " ", 10));
+	printf("\t%s\n", ft_strnstr("ola bom dia", "ola", 5));
+	printf("\t%s\n", ft_strnstr("ola bom dia", "", -1));
 	printf("\t%p\n", ft_strnstr("ola bom dia", "olasdsd", 10));
+	printf("\taaaa%p\n", ft_strnstr("ola bom dia", "!", -1));
 	printf("\t%p\n", ft_strnstr("ola bom dia", "!", 10));
 	// printf("\t%p\n", ft_strnstr("ola bom dia", NULL, 10)); //segfault
 	// printf("\t%p\n", ft_strnstr(NULL, "olasdsd", 10));		//segfault
 
 	printf("\n strnstr:\n");
 
-	printf("\t%s\n", strnstr("ola bom dia", "ola", 10));
-	printf("\t%s\n", strnstr("ola bom dia", " ", 10));
+	printf("\t%s\n", strnstr("ola bom dia", "ola", 5));
+	printf("\t%s\n", strnstr("ola bom dia", "", -1));
 	printf("\t%p\n", strnstr("ola bom dia", "olasdsd", 10));
+	printf("\taaaaa%p\n", strnstr("ola bom dia", "!", -1));
 	printf("\t%p\n", strnstr("ola bom dia", "!", 10));
 	// printf("\t%p\n", strstr("ola bom dia", NULL, 10)); //segfault
 	// printf("\t%p\n", strstr(NULL, "olasdsd", 10));		//segfaultr
-
+return 0;
 	printf("\n ft_strtrim:\n");
 
 	a = ft_strtrim("ola bom dia", " a");
@@ -277,20 +281,45 @@ int main()
 	printf("\t%s\n", (char *)memchr(a, '2', 4));
 	printf("\t%s\n", (char *)memchr(a, '3', 3));
 	printf("\t%s\n", (char *)memchr(a, '1', 1));
+	printf("\t%s\n", (char *)memchr(a, 2, 0));
 	printf("\t%p\n", memchr(a, '1', 0));
 	printf("\t%p\n", memchr(a, 'a', 5));
+	printf("\t%p\n", memchr(a, 2 + 256, 3));
+	// printf("\t%p\n", memchr(NULL, 'a', 1)); //segfault
+	
+		char s[] = {0, 1, 2 ,3 ,4 ,5};
+
+	printf("\t%s\n", (char *)memchr(s, 2, 3));
+	printf("\t%s\n", (char *)memchr(s, 6, 6));
+	printf("\t%s\n", (char *)memchr(s, 0, 1));
+	printf("\t%s\n", (char *)memchr(s, 0, 0));
+	printf("\t%s\n", (char *)memchr(s, 2, 0));
+	printf("\t%p\n", memchr(s, '1', 0));
+	printf("\t%p\n", memchr(s, 'a', 5));
+	printf("\t%p\n", memchr(s, 2 + 256, 3));
 	// printf("\t%p\n", memchr(NULL, 'a', 1)); //segfault
 	
 	printf("\n ft_memchr:\n");
+
 
 	printf("\t%s\n", (char *)ft_memchr(a, '1', 5));
 	printf("\t%s\n", (char *)ft_memchr(a, '2', 4));
 	printf("\t%s\n", (char *)ft_memchr(a, '3', 3));
 	printf("\t%s\n", (char *)ft_memchr(a, '1', 1));
-	printf("\t%p\n", ft_memchr(a, '1', 0));
+	printf("\t%s\n", (char *)ft_memchr(a, 2, 0));
+	printf("\t%p\n", ft_memchr(a, 'a', 0));
 	printf("\t%p\n", ft_memchr(a, 'a', 5));
+	printf("\t%p\n", ft_memchr(a, 2 + 256, 3));
 	// printf("\t%p\n", ft_memchr(NULL, 'a', 1)); //segfault
-
+	printf("\t%s\n", (char *)ft_memchr(s, 2, 3));
+	printf("\t%s\n", (char *)ft_memchr(s, 6, 6));
+	printf("\t%s\n", (char *)ft_memchr(s, 0, 1));
+	printf("\t%s\n", (char *)ft_memchr(s, 0, 0));
+	printf("\t%s\n", (char *)ft_memchr(s, 2, 0));
+	printf("\t%p\n", ft_memchr(s, 'a', 0));
+	printf("\t%p\n", ft_memchr(s, 'a', 5));
+	printf("\t%p\n", ft_memchr(s, 2 + 256, 3));
+	// printf("\t%p\n", ft_memchr(NULL, 'a', 1)); //segfault
 	printf("\n memcmp:\n");
 
 	printf("\t%d\n", memcmp("ABC", "ABC", 3));
@@ -345,7 +374,7 @@ int main()
 	printf("\n memcpy:\n");
 	char *b;
 	b = malloc(50);
-	bzero (b, 50);
+	ft_bzero (b, 50);
 // 
 	printf("\t%s\n", b = (char *)memcpy(b, "ABC\0", 3));
 	printf("\t%s\n", b = (char *)memcpy(b, "hello", 5));
@@ -360,7 +389,7 @@ int main()
 	// printf("\t%s\n", b = (char *)memcpy(NULL, NULL, 3)); //segfault
 	// 
 	printf("\n ft_memcpy:\n");
-	bzero (b, 50);
+	ft_bzero (b, 50);
 	printf("\t%s\n", (char *)ft_memcpy(b, "ABC\0", 3));
 	printf("\t%s\n", (char *)ft_memcpy(b, "hello", 5));
 	printf("\t%s\n", (char *)ft_memcpy(b, "ret\0", 0));
@@ -432,77 +461,41 @@ int main()
 	numb = strlcpy(b, "AB\0", 3);
 	printf("\t%zu\n", numb);
 	printf("\t%s\n", b);
-	numb = strlcpy(b, "ABK\0", 4);
+	numb = strlcpy(b, "ABK\0", 500);
 	printf("\t%zu\n", numb);
 	printf("\t%s\n", b);
 	numb = strlcpy(b, "ABp\0", 3);
 	printf("\t%zu\n", numb);
 	printf("\t%s\n", b);
-// // 
-	printf("\n ft_strlcpy:\n");
-	bzero (b, 50);
-	numb = ft_strlcpy(b, "ABC\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "hello\0", 5);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "hello\0", 50);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ret\0", 0);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ABC\0", 1);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "AB\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ABK\0", 4);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ABp\0", 3);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcpy(b, "ABp\0", 5);
-		// 
+	
 	printf("\n strlcat:\n");
-	bzero (b, 50);
-	numb = strlcat(b, "ABC\0", 10);
-	printf("\t%zu\n", numb);
+	ft_bzero (b, 50);
+	printf("\t%zu\n", strlcat(b, "ABC\0", 10));
 	printf("\t%s\n", b);
-	numb = strlcat(b, " hello\0", 40);
-	printf("\t%zu\n", numb);
+	printf("\t%zu\n", strlcat(b, " hello\0", 8));
 	printf("\t%s\n", b);
-	numb = strlcat(b, " there\0", 50);
-	printf("\t%zu\n", numb);
+	printf("\t%zu\n", strlcat(b, " there\0", 50));
 	printf("\t%s\n", b);
-	numb = strlcat(b, "ret\0", 0);
-	printf("\t%zu\n", numb);
+	printf("\t%zu\n", strlcat(b, "ret\0", 0));
 	printf("\t%s\n", b);
-	numb = strlcat(b, "ABC\0", 1);
-	printf("\t%zu\n", numb);
+	printf("\t%zu\n", strlcat(b, "ABC\0", 1));
+	printf("\t%s\n", b);
+// // 
+	printf("\n ft_strlcat:\n");
+	ft_bzero (b, 50);
+	printf("\t%zu\n", ft_strlcat(b, "ABC\0", 10));
+	printf("\t%s\n", b);
+	printf("\t%zu\n", ft_strlcat(b, " hello\0", 8));
+	printf("\t%s\n", b);
+	printf("\t%zu\n", ft_strlcat(b, " there\0", 50));
+	printf("\t%s\n", b);
+	printf("\t%zu\n", ft_strlcat(b, "ret\0", 0));
+	printf("\t%s\n", b);
+	printf("\t%zu\n", ft_strlcat(b, "ABC\0", 1));
 	printf("\t%s\n", b);
 		// 
-	bzero (b, 50);
-	printf("\n ft_strlcat:\n");
-	numb = ft_strlcat(b, "ABC\0", 10);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcat(b, " hello\0", 40);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcat(b, " there\0", 50);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcat(b, "ret\0", 0);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
-	numb = ft_strlcat(b, "ABC\0", 1);
-	printf("\t%zu\n", numb);
-	printf("\t%s\n", b);
 // 
+return 0;
 	printf("\n ft_strchr:\n");
 // 
 // return
@@ -539,7 +532,7 @@ int main()
 	printf("\t%s\n", strrchr("ola bom dia", ' '));
 	printf("\t%s\n", strrchr("ola bom dia", 'i'));
 	printf("\t%s\n", strrchr("ola bom dia", '\0'));
-	printf("\t%p\n", strrchr("ola bom dia", '!'));
+	printf("\t%s\n", strrchr("ola bom dia", '!'));
 // 
 printf("\n ft_split:\n");
 
@@ -561,13 +554,20 @@ printf("\n ft_split:\n");
 	printf("\t%s\n", ft_itoa(2147483647));
 	printf("\t%s\n", ft_itoa(10));
 	printf("\t%s\n", ft_itoa(0));
-	// bzero(b, 50);
+	// ft_bzero(b, 50);
 // 
 // size_t aaaa = 18446744073709551615;
 size_t aaaa = -1;
 
 // 
 printf("%zu", aaaa);
+
+char haystack[] = "ola muito bom dia";
+char needle[] = "ola";
+
+if (strnstr(haystack, needle, -1) == haystack + 1)
+	printf ("aaaaaaaaaaaaaaaaaaaaaaaaa");
+
 }
 // 
 	// char **mat{"ola", "ola", "ola", "ola", "ola", "ola", "ola", "ola"};

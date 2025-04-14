@@ -47,6 +47,8 @@ NAME=libft.a
 
 HDR_FILE=libft.h
 
+HDR_BONUS=libft_bonus.h
+
 CC=cc
 
 FLAGS= -Wall -Wextra -Werror
@@ -56,11 +58,13 @@ all: ${NAME}
 ${NAME}: ${OBJ_FILES}
 	ar rcs $@ $?
 
-bonus: ${OBJ_FILES} $(OBJ_BONUS) ${HDR_FILE}
-	ar rcs ${NAME} $(OBJ_BONUS) ${OBJ_FILES}
+bonus: .bonus
+
+.bonus: ${OBJ_FILES} $(OBJ_BONUS)
+	ar rcs ${NAME} $?
 	@touch bonus
 
-%.o: %.c ${HDR_FILE}
+%.o: %.c ${HDR_FILE} ${HDR_BONUS}
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 clean: 
