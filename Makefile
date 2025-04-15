@@ -58,6 +58,12 @@ all: ${NAME}
 ${NAME}: ${OBJ_FILES}
 	ar rcs $@ $?
 
+#main: my_main.c
+#	@git clone
+#
+#main bonus: my_main_bonus.c
+#	@git clone
+
 bonus: .bonus
 
 .bonus: ${OBJ_FILES} $(OBJ_BONUS)
