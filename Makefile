@@ -62,14 +62,14 @@ bonus: .bonus
 
 .bonus: ${OBJ_FILES} $(OBJ_BONUS)
 	ar rcs ${NAME} $?
-	@touch bonus
+	@touch .bonus
 
 %.o: %.c ${HDR_FILE} ${HDR_BONUS}
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 clean: 
 	rm -f $(OBJ_BONUS) $(OBJ_FILES) 
-	@rm -f bonus
+	@rm -f .bonus
 
 fclean: clean 
 	rm -f ${NAME}

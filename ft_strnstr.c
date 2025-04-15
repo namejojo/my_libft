@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 20:28:40 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/14 21:00:07 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/15 12:46:06 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,29 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	char	*needle;
+	char	*haystack;
 	char	*ret;
 
-	if (*big == '\0' && *little == '\0')
-		return ((char *)big);
-	if (*little == '\0')
-		return ((char *)big);
-	while (*big && len-- > 0)
+
+	haystack = (char *)big; 
+	needle = (char *)little;
+	if (*needle == '\0')
+		return ((char *)haystack);
+	while (*haystack && len-- > 0)
 	{
 		needle = (char *)little;
-		if (*big == *needle)
+		if (*haystack == *needle)
 		{
-			ret = (char *)big;
-			while (*big == *needle)
+			ret = haystack;
+			while (*haystack == *needle)
 			{
-				big++;
+				haystack++;
 				needle++;
 				if (*needle == '\0')
-					return (ret);
+					return ((char *)ret);
 			}
 		}
-		big++;
+		haystack = ++ret;
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 17:07:57 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 13:31:14 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/15 12:52:12 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	size;
+	int		size;
+	t_list	*temp;
 
+	temp = lst;
 	size = 0;
-	while (lst != NULL)
+	while (temp != NULL)
 	{
 		size++;
-		lst = lst->next;
+		temp = temp->next;
 	}
 	return (size);
 }

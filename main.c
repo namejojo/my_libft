@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/14 21:01:25 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/15 12:41:25 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int main()
 
 	printf("\n ft_strnstr:\n");
 
-	printf("\t%s\n", ft_strnstr("ola bom dia", "ola", 5));
+	printf("\t%s\n", ft_strnstr("aaabcdefgh", "aab", 10));
 	printf("\t%s\n", ft_strnstr("ola bom dia", "", -1));
 	printf("\t%p\n", ft_strnstr("ola bom dia", "olasdsd", 10));
 	printf("\taaaa%p\n", ft_strnstr("ola bom dia", "!", -1));
@@ -109,13 +109,13 @@ int main()
 
 	printf("\n strnstr:\n");
 
-	printf("\t%s\n", strnstr("ola bom dia", "ola", 5));
-	printf("\t%s\n", strnstr("ola bom dia", "", -1));
-	printf("\t%p\n", strnstr("ola bom dia", "olasdsd", 10));
-	printf("\taaaaa%p\n", strnstr("ola bom dia", "!", -1));
-	printf("\t%p\n", strnstr("ola bom dia", "!", 10));
-	// printf("\t%p\n", strstr("ola bom dia", NULL, 10)); //segfault
-	// printf("\t%p\n", strstr(NULL, "olasdsd", 10));		//segfaultr
+	printf("\t%s\n", strstr("aaabcdefgh", "aab"));
+	printf("\t%s\n", strstr("ola bom dia", ""));
+	printf("\t%p\n", strstr("ola bom dia", "olasdsd"));
+	printf("\taaaaa%p\n", strstr("ola bom dia", "!"));
+	printf("\t%p\n", strstr("ola bom dia", "!"));
+	// printf("\t%p\n", strstr("ola bom dia", NULL)); //segfault
+	// printf("\t%p\n", strstr(NULL, "olasdsd"));		//segfaultr
 return 0;
 	printf("\n ft_strtrim:\n");
 
