@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/15 15:07:49 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:17:46 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void adeus(void *content)
 {
-	content = NULL;
+	write (1, content, 0);
 }
 
 int main()
@@ -27,14 +27,18 @@ int main()
 	t_list	*bigie;
 
 	bigie = NULL;
-	if (ft_lstsize(bigie) == 0)
-		printf("yeeee\n%p", bigie);
+	printf("\n");
+	printf("%d",ft_lstsize(bigie));	
 	ft_lstadd_front(&bigie, ft_lstnew((void*)1));
-		printf("%d",ft_lstsize(bigie));
+	printf("\n");
+	printf("%d",ft_lstsize(bigie));	
 	ft_lstadd_front(&bigie, ft_lstnew((void*)2));
-		printf("%d", ft_lstsize(bigie));
+	printf("\n");
+	printf("%d", ft_lstsize(bigie));
 	ft_lstclear(&bigie, adeus);
 	
+	printf("\n");
+	printf("\n");
 	printf("\n");
 	t_list	*first;
 	t_list	*second;
@@ -50,7 +54,8 @@ int main()
 	// ft_lstdelone (third, adeus);
 	// second->next = NULL;
 	
-	printf("in we have:%d nodes\n", ft_lstsize(third));
+	printf("in we have:%d nodes\n", ft_lstsize(NULL));
+	printf("in we have:%d nodes\n", ft_lstsize(first));
 	
 	ft_lstclear(&first, adeus);
 	printf("fucking\n");
