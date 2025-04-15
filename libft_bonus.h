@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:02:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/14 08:58:18 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/15 13:17:37 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
+void adeus(void *content);
 #endif

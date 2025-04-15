@@ -1,5 +1,7 @@
 {
 	"files.associations": {
-		"libft_bonus.h": "c"
+		"libft_bonus.h": "c",
+		"libft.h": "c",
+		"type_traits": "c"
 	}
 }
