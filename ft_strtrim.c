@@ -6,14 +6,13 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 22:18:43 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/14 08:58:24 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/16 18:52:51 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>//naooooo
 
-static int	ft_check(char ch, char *charset)
+static int	ft_check(char ch, const char *charset)
 {
 	int	ind;
 
@@ -27,19 +26,20 @@ static int	ft_check(char ch, char *charset)
 	return (0);
 }
 
-static int	ft_strlen_set(char *str, char *set)
+static int	total_len(const char *str, const char *set)
 {
 	int	ind;
 	int	total;
 
 	total = 0;
-	ind = 0;
-	while (str[ind])
-	{
-		if (ft_check (str[ind], set) == 0)
-			total++;
-		ind++;
-	}
+	ind = -1;
+	while (str[++ind] && ft_check (str[ind], set))
+		total++;
+	if (str[ind]== '\0')
+		return (total);
+	ind = ft_strlen(str);
+	while (--ind >= 0 && ft_check (str[ind], set))
+		total++;
 	return (total);
 }
 
@@ -49,23 +49,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		ind2;
 	int		total;
 	char	*ret;
-	char	*str1;
 
-	ind = -1;
+	ind = 0;
 	ind2 = 0;
 	if (s1 == NULL)
 		return (NULL);
 	if (set == NULL)
 		return (ft_strdup((char *)s1));
-	str1 = (char *)s1;
-	total = ft_strlen_set((char *)s1, (char *)set);
+	total = ft_strlen(s1) - total_len(s1, set);
 	ret = ft_calloc(total + 1, 1);
 	if (ret == NULL)
 		return (NULL);
-	while (ind2 <= total && str1[++ind])
-	{
-		if (ft_check (str1[ind], (char *)set) == 0)
-			ret[ind2++] = str1[ind];
-	}
+	while (ft_check(s1[ind], (char *)set))
+		ind++;
+	while (s1[ind] && ind2 < total)
+			ret[ind2++] = s1[ind++];
 	return (ret);
 }

@@ -6,12 +6,11 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:09:25 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/11 19:01:28 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/16 19:35:40 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
+#include <libft.h>
 
 static int	ft_nrblrn(int nbr)
 {

@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 17:29:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/12 11:52:34 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/03/25 17:21:27 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/04/16 18:03:10 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*ret;
-	t_list	*temp;
+	t_list		*temp;
+	int			count;
+	int			sub_count;
 
-	if (lst == NULL)
-		return (NULL);
-	ret = ft_lstnew(f(lst->content));
-	if (ret == NULL)
-		return (NULL);
-	lst = lst->next;
-	while (lst != NULL)
+	if (lst == NULL || del == NULL || *lst == NULL)
+		return ;
+	count = ft_lstsize (*lst);
+	while (count-- > 0)
 	{
-		temp = ft_lstnew(f(lst->content));
-		if (temp == NULL)
-		{
-			ft_lstclear (&ret, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&ret, temp);
-		lst = lst->next;
+		temp = *lst;
+		sub_count = count;
+		while (sub_count-- > 0)
+			temp = temp->next;
+		ft_lstdelone(temp, del);
 	}
-	return (ret);
+	*lst = NULL;
 }

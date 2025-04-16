@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/15 12:41:25 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/16 19:56:21 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,24 +99,25 @@ int main()
 
 	printf("\n ft_strnstr:\n");
 
-	printf("\t%s\n", ft_strnstr("aaabcdefgh", "aab", 10));
+	printf("\t%s\n", ft_strnstr("aaabcdefgh", "de", 10));
 	printf("\t%s\n", ft_strnstr("ola bom dia", "", -1));
-	printf("\t%p\n", ft_strnstr("ola bom dia", "olasdsd", 10));
+	printf("\t%p\n", ft_strnstr("ola bom dia", "la", 10));
 	printf("\taaaa%p\n", ft_strnstr("ola bom dia", "!", -1));
 	printf("\t%p\n", ft_strnstr("ola bom dia", "!", 10));
 	// printf("\t%p\n", ft_strnstr("ola bom dia", NULL, 10)); //segfault
 	// printf("\t%p\n", ft_strnstr(NULL, "olasdsd", 10));		//segfault
 
+
 	printf("\n strnstr:\n");
 
-	printf("\t%s\n", strstr("aaabcdefgh", "aab"));
-	printf("\t%s\n", strstr("ola bom dia", ""));
-	printf("\t%p\n", strstr("ola bom dia", "olasdsd"));
-	printf("\taaaaa%p\n", strstr("ola bom dia", "!"));
-	printf("\t%p\n", strstr("ola bom dia", "!"));
-	// printf("\t%p\n", strstr("ola bom dia", NULL)); //segfault
-	// printf("\t%p\n", strstr(NULL, "olasdsd"));		//segfaultr
-return 0;
+	printf("\t%s\n", strnstr("aaabcdefgh", "de", 10));
+	printf("\t%s\n", strnstr("ola bom dia", "", -1));
+	printf("\t%p\n", strnstr("ola bom dia", "la", 10));
+	printf("\taaaa%p\n", strnstr("ola bom dia", "!", -1));
+	printf("\t%p\n", strnstr("ola bom dia", "!", 10));
+	// printf("\t%p\n", strnstr("ola bom dia", NULL, 10)); //segfault
+	// printf("\t%p\n", strnstr(NULL, "olasdsd", 10));
+
 	printf("\n ft_strtrim:\n");
 
 	a = ft_strtrim("ola bom dia", " a");
@@ -125,7 +126,7 @@ return 0;
 	a = ft_strtrim("ola bom dia", "ola");
 	printf("\t%s\n", a); 
 	free (a);
-	a = ft_strtrim("ola bom dia", " ");
+	a = ft_strtrim(" ola bom dia                ", " ");
 	printf("\t%s\n", a); 
 	free (a);
 	a = ft_strtrim("ola bom dia", "");
@@ -135,8 +136,9 @@ return 0;
 	printf("\t%s\n", a); 
 	free (a);
 	a = ft_strtrim(NULL, "a");
-	printf("\t%p\n", a); 
+	printf("\t%s\n", a); 
 	free (a);
+	
 
 	printf("\n ft_substr:\n");
 
@@ -495,7 +497,7 @@ return 0;
 	printf("\t%s\n", b);
 		// 
 // 
-return 0;
+
 	printf("\n ft_strchr:\n");
 // 
 // return
@@ -537,14 +539,11 @@ return 0;
 printf("\n ft_split:\n");
 
 	char **spli;
-	// 
-	spli = ft_split("ola bom dia a todos", ' ');
+	//
+	spli = ft_split("olabomdiaatodos", 'k');
 	int i = -1;
-	while (spli && spli[++i] != NULL)
-	{
+	while (spli && spli[++i])
 		printf("\t%s\n", spli[i]);
-		free (spli[i]);
-	}
 	free (spli);
 	// 
 	printf("\n ft_itoa:\n");

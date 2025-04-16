@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 21:32:36 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/10 18:35:10 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/16 19:50:35 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,18 @@ static char	*ft_strcat(char *dest, char *src)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		total;
-	char	*dest;
+	char	*ret;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-	total = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	dest = malloc(total + 1);
-	if (dest == NULL)
+	if (s1 == NULL)
+		return (ft_strdup(s2));
+	if (s2 == NULL)
+		return (ft_strdup(s1));
+	ret = malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
+	if (ret == NULL)
 		return (NULL);
-	dest = ft_strcpy(dest, (char *)s1);
-	dest = ft_strcat(dest, (char *)s2);
-	return (dest);
+	ret = ft_strcpy(ret, (char *)s1);
+	ret = ft_strcat(ret, (char *)s2);
+	return (ret);
 }

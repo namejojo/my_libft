@@ -51,7 +51,7 @@ HDR_BONUS=libft_bonus.h
 
 CC=cc
 
-FLAGS= -Wall -Wextra -Werror
+FdLAGS= -Wall -Wextra -Werror
 
 all: ${NAME}
 
@@ -70,7 +70,7 @@ bonus: .bonus
 	ar rcs ${NAME} $?
 	@touch .bonus
 
-%.o: %.c ${HDR_FILE} ${HDR_BONUS}
+%.o: %.c ${HDR_FILE}
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 clean: 
