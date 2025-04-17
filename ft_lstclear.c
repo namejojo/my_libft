@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 17:21:27 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/16 18:03:10 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 10:23:20 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	int			count;
 	int			sub_count;
 
-	if (lst == NULL || del == NULL || *lst == NULL)
+	if (lst == NULL || *lst == NULL || del == NULL)
 		return ;
 	count = ft_lstsize (*lst);
 	while (count-- > 0)

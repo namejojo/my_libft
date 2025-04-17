@@ -3,6 +3,7 @@
 		"libft_bonus.h": "c",
 		"libft.h": "c",
 		"type_traits": "c",
-		"random": "c"
+		"random": "c",
+		"sstream": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:27:10 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/03/25 17:48:04 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 10:45:36 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	ft_putnbr_fd(int n, int fd)
 		write (fd, "-", 1);
 	if (n < -9 || n > 9)
 		ft_putnbr_fd(n / 10, fd);
-	if (n > 0)
-		n = n % 10 + 48;
-	else
-		n = -(n % 10) + 48;
+	n = (n % 10) * ((n > 0) - (n < 0)) + 48;
 	write (fd, &n, 1);
 }
+// int main()
+// {
+// 	ft_putnbr_fd(-2147483648, 1);
+// }

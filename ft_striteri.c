@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:07:18 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/12 14:18:18 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 10:54:32 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ void	ft_striteri(char const *s, void (*f)(unsigned int, char *))
 	if (s != NULL && f != NULL)
 	{
 		str = (char *)s;
-		ind = 0;
-		while (str[ind])
-		{
-			f(ind, &str[ind]);
-			ind++;
-		}
+		ind = -1;
+		while (str[++ind])
+			f(ind, str + ind);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:59:16 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/14 17:19:08 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:00:40 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	ind;
 	size_t	ret;
-	char	*s;
 
-	s = (char *)src;
 	ind = 0;
 	ret = (ft_strlen((char *)src));
 	if (size == 0)
 		return (ret);
-	while (ind < size - 1 && s[ind])
+	while (ind < size - 1 && src[ind])
 	{
-		dst[ind] = s[ind];
+		dst[ind] = src[ind];
 		ind++;
 	}
-	if (ind < size)
-		dst[ind] = '\0';
+	dst[ind] = '\0';
 	return (ret);
 }

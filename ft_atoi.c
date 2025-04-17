@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 12:14:12 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/14 19:53:38 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 10:17:11 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,18 @@ int	ft_atoi(const char *str)
 			sign = -sign;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9' && sign > 0)
+	while (*str >= '0' && *str <= '9')
 	{
-		num = num * 10 + *str - 48 ;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9' && sign < 0)
-	{
-		num = num * 10 - (*str - 48);
+		num = num * 10 + (*str - 48) * (sign);
 		str++;
 	}
 	return (num);
 }
+
+// int main()
+// {
+// 	char * str = "  \n\t\v\r2147483648";
+// 	printf("Og return %d\n", atoi(str));
+// 	printf("My return %d", ft_atoi(str));		
+
+// }

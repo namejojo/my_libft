@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 22:18:43 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/16 18:52:51 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:19:43 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	total_len(const char *str, const char *set)
 	ind = -1;
 	while (str[++ind] && ft_check (str[ind], set))
 		total++;
-	if (str[ind]== '\0')
+	if (str[ind] == '\0')
 		return (total);
 	ind = ft_strlen(str);
 	while (--ind >= 0 && ft_check (str[ind], set))
@@ -60,9 +60,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ret = ft_calloc(total + 1, 1);
 	if (ret == NULL)
 		return (NULL);
-	while (ft_check(s1[ind], (char *)set))
+	while (ft_check(s1[ind], (char *)set) && s1[ind])
 		ind++;
 	while (s1[ind] && ind2 < total)
-			ret[ind2++] = s1[ind++];
+		ret[ind2++] = s1[ind++];
 	return (ret);
 }

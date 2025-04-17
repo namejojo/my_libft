@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 21:22:15 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/15 12:47:17 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:23:04 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ret;
-	char	*src;
 	size_t	count;
 
 	if (s == NULL)
@@ -29,12 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		ret = (char *)ft_calloc(len + 1, 1);
 	if (ret == NULL)
 		return (NULL);
-	src = (char *)s;
-	while (count < len && src[start])
-	{
-		ret[count] = src[start];
-		count++;
-		start++;
-	}
+	while (count < len && s[start])
+		ret[count++] = s[start + count];
 	return (ret);
 }

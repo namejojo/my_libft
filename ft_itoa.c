@@ -6,11 +6,11 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:09:25 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/16 19:35:40 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 10:16:42 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 static int	ft_nrblrn(int nbr)
 {
@@ -50,3 +50,14 @@ char	*ft_itoa(int n)
 	}
 	return (ret);
 }
+/* 
+int main()
+{
+	printf("\n ft_itoa:\n");
+// 
+	printf("\t%s\n", ft_itoa(-123456));
+	printf("\t%s\n", ft_itoa(-2147483648));
+	printf("\t%s\n", ft_itoa(2147483647));
+	printf("\t%s\n", ft_itoa(10));
+	printf("\t%s\n", ft_itoa(0));	
+} */

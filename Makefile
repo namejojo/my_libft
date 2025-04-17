@@ -47,8 +47,6 @@ NAME=libft.a
 
 HDR_FILE=libft.h
 
-HDR_BONUS=libft_bonus.h
-
 CC=cc
 
 FdLAGS= -Wall -Wextra -Werror

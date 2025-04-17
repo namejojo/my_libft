@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/16 19:56:21 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:41:56 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,41 @@ int main()
 	printf("\t%zu\n", strlen("\0"));
 	// printf("\t%zu\n", strlen(NULL));
 	// printf("\t%d\n", strlen(NULL)); //segfault
+	
+	
+	printf("putnbr\n:");
+	
+	printf("\t");
+	ft_putnbr_fd(-2147483648, 1);
+	printf("\n");	
+	printf("\t");
+	ft_putnbr_fd(2147483647, 1);
+	printf("\n");	
+	printf("\t");
+	ft_putnbr_fd(-10, 1);
+	printf("\n");
+	printf("putstr\n:");
+	
+	printf("\t");
+	ft_putstr_fd("hello world", 1);
+	printf("\n");	
+	printf("\t");
+	ft_putstr_fd(NULL, 1);
+	printf("\n");	
+	printf("\t");
+	ft_putstr_fd("\0", 1);
+	printf("\n");
+	printf("putendl\n:");
+	
+	printf("\t");
+	ft_putendl_fd("hello world", 1);
+	printf("\n");	
+	printf("\t");
+	ft_putendl_fd(NULL, 1);
+	printf("\n");	
+	printf("\t");
+	ft_putendl_fd("\0", 1);
+	printf("\n");
 
 	printf(" ft_atoi:\n");
 
@@ -62,9 +97,12 @@ int main()
 	printf("\t%d\n", ft_atoi("   \t\r\n\v\f--123f"));
 	printf("\t%d\n", ft_atoi("   \t\r\n\v\f-12 3f"));
 	printf("\t%d\n", ft_atoi("   \t\r\n\v\f+123f"));
-	printf("\t%d\n", ft_atoi("   \t\r\n\v\f123f"));
+	printf("\t%d\n", ft_atoi("   \t\r\n\v\f -2147483648"));
+	printf("\t%d\n", ft_atoi("   \t\r\n\v\f 2147483647"));
+	printf("\t%d\n", ft_atoi("   \t\r\n\v\f ++2147483647"));
 	printf("\t%d\n", ft_atoi(""));
 	// printf("\t%d\n", ft_atoi(NULL)); //segfault
+	
 	
 	printf("\natoi:\n");
 
@@ -72,7 +110,9 @@ int main()
 	printf("\t%d\n", atoi("   \t\r\n\v\f--123f"));
 	printf("\t%d\n", atoi("   \t\r\n\v\f-12 3f"));
 	printf("\t%d\n", atoi("   \t\r\n\v\f+123f"));
-	printf("\t%d\n", atoi("   \t\r\n\v\f123f"));
+	printf("\t%d\n", atoi("   \t\r\n\v\f -2147483648"));
+	printf("\t%d\n", atoi("   \t\r\n\v\f 2147483647"));
+	printf("\t%d\n", atoi("   \t\r\n\v\f ++2147483647"));
 	printf("\t%d\n", atoi(""));
 	// printf("\t%d\n", atoi(NULL)); //segfault
 
@@ -91,18 +131,16 @@ int main()
 	printf("\t%s\n", a);
 	free (a);
 	a = ft_strjoin("ola bom dia", NULL);
-	printf("\t%p\n", a);
+	printf("\t%s\n", a);
 	free (a);
 	a = ft_strjoin(NULL, "a todos aqui");
-	printf("\t%p\n", a);
+	printf("\t%s\n", a);
 	free (a);
 
 	printf("\n ft_strnstr:\n");
 
 	printf("\t%s\n", ft_strnstr("aaabcdefgh", "de", 10));
-	printf("\t%s\n", ft_strnstr("ola bom dia", "", -1));
-	printf("\t%p\n", ft_strnstr("ola bom dia", "la", 10));
-	printf("\taaaa%p\n", ft_strnstr("ola bom dia", "!", -1));
+	printf("\t%s\n", ft_strnstr("ola bom dia", "la", 10));
 	printf("\t%p\n", ft_strnstr("ola bom dia", "!", 10));
 	// printf("\t%p\n", ft_strnstr("ola bom dia", NULL, 10)); //segfault
 	// printf("\t%p\n", ft_strnstr(NULL, "olasdsd", 10));		//segfault
@@ -111,9 +149,7 @@ int main()
 	printf("\n strnstr:\n");
 
 	printf("\t%s\n", strnstr("aaabcdefgh", "de", 10));
-	printf("\t%s\n", strnstr("ola bom dia", "", -1));
-	printf("\t%p\n", strnstr("ola bom dia", "la", 10));
-	printf("\taaaa%p\n", strnstr("ola bom dia", "!", -1));
+	printf("\t%s\n", strnstr("ola bom dia", "la", 10));
 	printf("\t%p\n", strnstr("ola bom dia", "!", 10));
 	// printf("\t%p\n", strnstr("ola bom dia", NULL, 10)); //segfault
 	// printf("\t%p\n", strnstr(NULL, "olasdsd", 10));
@@ -470,6 +506,32 @@ int main()
 	printf("\t%zu\n", numb);
 	printf("\t%s\n", b);
 	
+	printf("\n ft_strlcpy:\n");
+	numb = ft_strlcpy(b, "ABC\0", 3);
+	printf("\t%zu\n", numb);
+	printf("\t%s\n", b);
+	numb = ft_strlcpy(b, "hello\0", 5);
+	printf("\t%zu\n", numb);
+	printf("\t%s\n", b);
+	numb = ft_strlcpy(b, "hello\0", 50);
+	printf("\t%zu\n", numb);
+	printf("\t%s\n", b);
+	numb = ft_strlcpy(b, "ret\0", 0);
+	printf("\t%zu\n", numb);
+	printf("\t%s\n", b);
+	numb = ft_strlcpy(b, "ABC\0", 1);
+	printf("\t%zu\n", numb);
+	printf("\t%s\n", b);
+	numb = ft_strlcpy(b, "AB\0", 3);
+	printf("\t%zu\n", numb);
+	printf("\t%s\n", b);
+	numb = ft_strlcpy(b, "ABK\0", 500);
+	printf("\t%zu\n", numb);
+	printf("\t%s\n", b);
+	numb = ft_strlcpy(b, "ABp\0", 3);
+	printf("\t%zu\n", numb);
+	printf("\t%s\n", b);
+	
 	printf("\n strlcat:\n");
 	ft_bzero (b, 50);
 	printf("\t%zu\n", strlcat(b, "ABC\0", 10));
@@ -540,7 +602,7 @@ printf("\n ft_split:\n");
 
 	char **spli;
 	//
-	spli = ft_split("olabomdiaatodos", 'k');
+	spli = ft_split("olabomdiaatodos", 'a');
 	int i = -1;
 	while (spli && spli[++i])
 		printf("\t%s\n", spli[i]);

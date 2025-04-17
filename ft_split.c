@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:50:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/16 20:00:59 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 10:50:45 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static char	**alloc_mem(int str_count)
 
 char	**ft_split(char const *s, char c)
 {
-	t_split data;
+	t_split	data;
 
 	if (s == NULL)
 		return (NULL);
