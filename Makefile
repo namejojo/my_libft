@@ -35,11 +35,11 @@ SRC_FILES = ft_toupper.c \
 		
 OBJ_FILES=${SRC_FILES:.c=.o}
 
-SRC_BONUS=ft_lstdelone_bonus.c ft_lstadd_back_bonus.c \
-		  ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
-		  ft_lstiter_bonus.c ft_lstlast_bonus.c \
-		  ft_lstmap_bonus.c ft_lstnew_bonus.c \
-		  ft_lstsize_bonus.c 
+SRC_BONUS=ft_lstdelone.c ft_lstadd_back.c \
+		  ft_lstadd_front.c ft_lstclear.c \
+		  ft_lstiter.c ft_lstlast.c \
+		  ft_lstmap.c ft_lstnew.c \
+		  ft_lstsize.c 
 
 OBJ_BONUS=${SRC_BONUS:.c=.o}
 
@@ -49,7 +49,7 @@ HDR_FILE=libft.h
 
 CC=cc
 
-FdLAGS= -Wall -Wextra -Werror
+FLAGS= -Wall -Wextra -Werror
 
 all: ${NAME}
 
@@ -59,7 +59,7 @@ ${NAME}: ${OBJ_FILES}
 #main: my_main.c
 #	@git clone
 #
-#main bonus: my_main_bonus.c
+#main bonus: my_main.c
 #	@git clone
 
 bonus: .bonus
@@ -81,3 +81,7 @@ fclean: clean
 re: fclean all
 
 .PHONY: re fclean clean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC_FILES)
+	gcc -nostartfiles -shared -o libft.so $(OBJ_FILES)

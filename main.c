@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:26:06 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/17 11:41:56 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/04/17 13:06:21 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,10 @@ int main()
 	printf("\t%p\n", ft_strnstr("ola bom dia", "!", 10));
 	// printf("\t%p\n", ft_strnstr("ola bom dia", NULL, 10)); //segfault
 	// printf("\t%p\n", ft_strnstr(NULL, "olasdsd", 10));		//segfault
+	printf("\t%s\n", strnstr("NULL", "", 0));
 
+// ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] 
+// [crash]: your strnstr crush when null parameter is sent with a size of 0
 
 	printf("\n strnstr:\n");
 
@@ -439,6 +442,7 @@ int main()
 	// printf("\t%p\n", (char *)ft_memcpy(b, NULL, 3)); //segfault
 	// printf("\t%p\n", (char *)ft_memcpy(NULL, "ABC", 3)); //segfault
 	// printf("\t%p\n", (char *)ft_memcpy(NULL, NULL, 3)); //segfault
+	return 0;
 	printf("\n memmove:\n");
 // 
 	char c[50] = "memmove pode dar muito geito";
@@ -534,7 +538,7 @@ int main()
 	
 	printf("\n strlcat:\n");
 	ft_bzero (b, 50);
-	printf("\t%zu\n", strlcat(b, "ABC\0", 10));
+	printf("\t%zu\n", strlcat(NULL, "ABC\0", 0));
 	printf("\t%s\n", b);
 	printf("\t%zu\n", strlcat(b, " hello\0", 8));
 	printf("\t%s\n", b);
@@ -547,7 +551,7 @@ int main()
 // // 
 	printf("\n ft_strlcat:\n");
 	ft_bzero (b, 50);
-	printf("\t%zu\n", ft_strlcat(b, "ABC\0", 10));
+	printf("\t%zu\n", strlcat(NULL, "ABC\0", 0));
 	printf("\t%s\n", b);
 	printf("\t%zu\n", ft_strlcat(b, " hello\0", 8));
 	printf("\t%s\n", b);
@@ -558,7 +562,6 @@ int main()
 	printf("\t%zu\n", ft_strlcat(b, "ABC\0", 1));
 	printf("\t%s\n", b);
 		// 
-// 
 
 	printf("\n ft_strchr:\n");
 // 
