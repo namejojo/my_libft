@@ -6,19 +6,30 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:08:36 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/04/17 11:13:46 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/06/06 13:54:54 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *little)
 {
-	int		ind;
+	size_t	indl;
+	size_t	indb;
 
-	ind = ft_strlen((char *)s) + 1;
-	while (ind-- > 0)
-		if (s[ind] == (char)c)
-			return ((char *)s + ind);
+	indb = 0;
+	if (*little == '\0')
+		return ((char *)big);
+	while (big[indb])
+	{
+		indl = 0;
+		while (big[indb + indl] == little[indl])
+		{
+			indl++;
+			if (little[indl] == '\0')
+				return ((char *)big + indb);
+		}
+		indb++;
+	}
 	return (NULL);
 }
